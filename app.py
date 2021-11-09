@@ -3,7 +3,6 @@ from flask import Flask
 import pymysql
 
 app = Flask(__name__)
-db = init_db()
 db_name = 'alphavantage_uat'
 
 class AlphavantageMySQL:
@@ -63,6 +62,7 @@ def hello():
 def daily_eod():
 #     try:
 #         import pandas as pd
+#         db = AlphavantageMySQL.init_db()
 
 #         ## daily ticker/currency (/api/dailyeod)
 #         params_dict = {
@@ -71,7 +71,7 @@ def daily_eod():
 #             'to_symbol': 'USD',
 #             'apikey': 'demo'
 #         }
-#         data = get_alphavantage(params_dict)
+#         data = AlphavantageMySQL.get_alphavantage(params_dict)
 #         # data
 
 #         # df = pd.read_json(fname).reset_index()
@@ -97,7 +97,7 @@ def daily_eod():
 #         table_name = '_'.join(list(params_dict.values())[:-1]).lower()
 #         print(table_name)
 
-#         insert_data(df, db_name, table_name, db)
+#         AlphavantageMySQL.insert_data(df, db_name, table_name, db)
 #         db.commit()
 #     except Exception as e:
 #         print(f"Error: {e}")
@@ -110,6 +110,7 @@ def daily_eod():
 def monthly_cpi():
 #     try:
 #         import pandas as pd
+#         db = AlphavantageMySQL.init_db()
 
 #         ## monthly CPI (/api/monthlycpi)
 #         params_dict = {
@@ -117,7 +118,7 @@ def monthly_cpi():
 #             'interval': 'monthly',
 #             'apikey': 'demo'
 #         }
-#         data = get_alphavantage(params_dict)
+#         data = AlphavantageMySQL.get_alphavantage(params_dict)
 #         # data
 
 #         # df = pd.read_json(fname)
@@ -136,7 +137,7 @@ def monthly_cpi():
 #         table_name = '_'.join(list(params_dict.values())[:-1]).lower()
 #         print(table_name)
 
-#         insert_data(df, db_name, table_name, db)
+#         AlphavantageMySQL.insert_data(df, db_name, table_name, db)
 #         db.commit()
 #     except Exception as e:
 #         print(f"Error: {e}")
